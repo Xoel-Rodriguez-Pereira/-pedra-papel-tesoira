@@ -1,11 +1,29 @@
 import pytest
 from src.control_errors import IncorrectOptionException
 
-@pytest.mark.ValidInputs
+@pytest.mark.validInputs
 @pytest.mark.parametrize("input, validation", [
-    ('paper', True),   # Caso 1
-    ('scissors', True),   # Caso 2
-    ('rock', True),   # Caso 3
+    ('paper', True),   
+    ('scissors', True),   
+    ('rock', True),   
 ])
 def test_control_errors_valid(input, validation):
-    assert IncorrectOptionException(input) == validation
+    assert IncorrectOptionException.isInputValid(input) == validation 
+
+@pytest.mark.invalidInputs
+@pytest.mark.parametrize("input, validation", [
+    ('manhatan', False),
+    ('1234', False),
+    ('antonia', False),
+])
+def test_control_errors_invalid(input, validation):
+    assert IncorrectOptionException.isInputValid(input) == validation
+
+@pytest.mark.exceptions
+@pytest.mark.parametrize("input, validation", [
+    (1, False),
+    (543, False),
+    (23, False),
+])
+def test_control_errors_exception(input, validation):
+    assert IncorrectOptionException.isInputValid(input) == validation
