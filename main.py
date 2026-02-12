@@ -1,7 +1,7 @@
 from src.assess_game import *
-
+from src.game_actions import GameActions
 def main():
-    game_actions = [ROCK, PAPER, SCISSORS]
+    game_actions = [GameActions.ROCK.value, GameActions.PAPER.value, GameActions.SCISSORS.value]
     while True:
         user_action = input("\nPick a choice: rock, paper or scissors: ")
         computer_action = random.choice(game_actions)
