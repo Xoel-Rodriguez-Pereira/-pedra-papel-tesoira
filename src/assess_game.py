@@ -3,32 +3,30 @@
 #!/usr/bin/python3
 
 import random
+from src.game_actions import GameActions
 
-ROCK = 'rock'
-PAPER = 'paper'
-SCISSORS = 'scissors'
 
 def assess_game(user_action, computer_action): 
     if user_action == computer_action:
         print(f"User and computer picked {user_action}. Draw game!")
 
     # You picked Rock
-    elif user_action == ROCK:
-        if computer_action == SCISSORS:
+    elif user_action == GameActions.ROCK.value:
+        if computer_action in GameActions.WINING_MATCHES.value[user_action]:
             print("Rock smashes scissors. You won!") 
         else:
             print("Paper covers rock. You lost!")
     
     # You picked Paper
-    elif user_action == PAPER:
-        if computer_action == ROCK:
+    elif user_action == GameActions.PAPER.value:
+        if computer_action == GameActions.ROCK.value:
             print("Paper covers rock. You won!")
         else:
             print("Scissors cuts paper. You lost!")
     
     # You picked Scissors
-    elif user_action == SCISSORS:
-        if computer_action == ROCK:
+    elif user_action == GameActions.SCISSORS.value:
+        if computer_action == GameActions.ROCK.value:
             print("Rock smashes scissors. You lost!") 
         else:
             print("Scissors cuts paper. You won!")
