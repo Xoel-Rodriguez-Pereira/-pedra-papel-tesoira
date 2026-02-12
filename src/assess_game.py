@@ -13,16 +13,16 @@ def assess_game(user_action, computer_action):
     # You picked Rock
     elif user_action == GameActions.ROCK.value:
         if computer_action in GameActions.WINING_MATCHES.value[user_action]:
-            print("Rock smashes scissors. You won!") 
+            print(f"Rock smashes {computer_action}. You won!") 
         else:
-            print("Paper covers rock. You lost!")
+            print(f"{computer_action.title()} covers rock. You lost!")
     
     # You picked Paper
     elif user_action == GameActions.PAPER.value:
-        if computer_action == GameActions.ROCK.value:
-            print("Paper covers rock. You won!")
+        if computer_action in GameActions.WINING_MATCHES.value[user_action]:
+            print(f" Paper covers {computer_action}. You won!") 
         else:
-            print("Scissors cuts paper. You lost!")
+            print(f"{computer_action.title()} cut paper. You lost!")
     
     # You picked Scissors
     elif user_action == GameActions.SCISSORS.value:
