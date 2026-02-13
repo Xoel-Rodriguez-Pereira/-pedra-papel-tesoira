@@ -5,11 +5,7 @@ class GameActions(Enum):
     PAPER = 'paper'
     SCISSORS = 'scissors'
 
-    WINING_MATCHES = {
-        'rock': ('scissors'),
-        'paper': ('rock'),
-        'scissors': ('paper'),
-    }
+    
 
 
 
